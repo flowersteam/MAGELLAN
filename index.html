@@ -88,12 +88,12 @@
             <li>✅ <strong>Generalize its LP estimations to unseen goals</strong>, allowing for rapid adaptation</li>
             <li>✅ <strong>Structure the goal space semantically</strong>, unlocking <strong>curriculum learning at scale</strong></li>
         </ul>
-        <img src="images/magellan.png" alt="MAGELLAN architecture" style="width: 50%; height: 50%"/>
+        <img src="images/magellan.png" alt="MAGELLAN architecture" style="width: 60%; height: 60%"/>
         <p class="description"> During training, our LLM agent uses MAGELLAN to estimate its past and current competence to compute absolute learning progress (ALP) on each goal. Given the per-goal ALP, the LLM agent's goal selector chooses the next goal to practice proportionally to their ALP. The LLM agent then performs a trajectory to achieve this goal and the outcome is used to update both the LLM agent with online RL and MAGELLAN's competence estimation.</p> 
         
         <h2>Testing 🧭MAGELLAN in Little-Zoo 🦁🌱</h2>
         <p>To evaluate its capabilities, we trained an LLM agent in <strong>Little-Zoo</strong>, a fully <strong>text-based environment</strong> where observations, goals, and actions are all expressed in <strong>natural language</strong>.</p>
-        <img src="images/littlezoo.png" alt="A) Little-Zoo techtree, B) Little-Zoo goal space, C) Little-Zoo environment" style="width: 50%; height: 50%"/>
+        <img src="images/littlezoo.png" alt="A) Little-Zoo techtree, B) Little-Zoo goal space, C) Little-Zoo environment" style="width: 60%; height: 60%"/>
         <p class="description"> A) Little-Zoo's tech tree. B) Little-Zoo's goal space is composed of all the possible combinations between instructions and objects that can be in the scene. Most object configurations make an instruction infeasible (e.g. "grow lion" is impossible with the second configuration, as water, needed to obtain plants, is missing). C) Little-Zoo provides a textual description that is given in our LLM agent's prompt.</p>
         <a href="https://github.com/LorisGaven/LittleZoo" class="button github" target="_blank">🔗 Explore Little-Zoo</a>
       
