@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧭MAGELLAN: Learning Progress Estimation for LLM Agents</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .buttons {
+            margin: 20px 0;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 15px;
+            margin-right: 10px;
+            color: white;
+            background-color: #0073b1;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button.github {
+            background-color: #333;
+        }
+        .question img, .embedding img {
+            width: 100%;
+            max-width: 600px;
+            display: block;
+            margin: 10px 0;
+        }
+        .description {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Announcing 🧭MAGELLAN: A Breakthrough in Learning Progress Estimation for LLM Agents!</h1>
+        
+        <p>In open-ended learning, AI struggles with infinite goal spaces. Humans naturally <strong>prioritize</strong> learning based on <strong>progress</strong>, but can AI do the same?</p>
+        
+        <p>We introduce <strong>🧭MAGELLAN</strong>, a <strong>metacognitive framework</strong> that enables <strong>Large Language Model (LLM) agents</strong> to <strong>predict their own learning progress (LP)</strong> and build structured <strong>goal space representations</strong>. This allows for <strong>efficient exploration and mastery</strong> of vast, dynamic environments.</p>
+        
+        <div class="buttons">
+            <a href="https://arxiv.org/abs/2502.07709" class="button" target="_blank">📄 Read the Full Paper</a>
+            <a href="https://github.com/LorisGaven/MAGELLAN" class="button github" target="_blank">💻 GitHub Repository</a>
+        </div>
+      
+        <h2>How Does MAGELLAN Work?</h2>
+        <ul>
+            <li>✅ <strong>Estimate its past & current competence</strong> using <strong>absolute learning progress (ALP)</strong></li>
+            <li>✅ <strong>Prioritize goals that maximize learning progress</strong>, improving efficiency</li>
+            <li>✅ <strong>Generalize its LP estimations to unseen goals</strong>, allowing for rapid adaptation</li>
+            <li>✅ <strong>Structure the goal space semantically</strong>, unlocking <strong>curriculum learning at scale</strong></li>
+        </ul>
+        <img src="images/magellan.png" alt="MAGELLAN architecture" style="width: 50%; height: 50%"/>
+        <p class="description"> During training, our LLM agent uses MAGELLAN to estimate its past and current competence to compute absolute learning progress (ALP) on each goal. Given the per-goal ALP, the LLM agent's goal selector chooses the next goal to practice proportionally to their ALP. The LLM agent then performs a trajectory to achieve this goal and the outcome is used to update both the LLM agent with online RL and MAGELLAN's competence estimation.</p> 
+        
+        <h2>Testing 🧭MAGELLAN in Little-Zoo 🦁🌱</h2>
+        <p>To evaluate its capabilities, we trained an LLM agent in <strong>Little-Zoo</strong>, a fully <strong>text-based environment</strong> where observations, goals, and actions are all expressed in <strong>natural language</strong>.</p>
+        <img src="images/littlezoo.png" alt="A) Little-Zoo techtree, B) Little-Zoo goal space, C) Little-Zoo environment" style="width: 50%; height: 50%"/>
+        <p class="description"> A) Little-Zoo's tech tree. B) Little-Zoo's goal space is composed of all the possible combinations between instructions and objects that can be in the scene. Most object configurations make an instruction infeasible (e.g. "grow lion" is impossible with the second configuration, as water, needed to obtain plants, is missing). C) Little-Zoo provides a textual description that is given in our LLM agent's prompt.</p>
+        <a href="https://github.com/LorisGaven/LittleZoo" class="button github" target="_blank">🔗 Explore Little-Zoo</a>
+      
+        <h2>Key Research Questions & Findings</h2>
+        <div class="question">
+            <h3>🔹 <strong>Q1:</strong> How does 🧭MAGELLAN’s competence estimation compare to baselines?</h3>
+            <img src="images/Q1.png" alt="Q1 Analysis">
+            <p class="description">🧭MAGELLAN matches expert baselines in estimating competence over tens of thousands of goals—but with minimal cost & error! Unlike other methods, it efficiently tracks competence transfer across goal spaces.</p>
+        </div>
+        <div class="question">
+            <h3>🔹 <strong>Q2:</strong> Can it build an efficient learning curriculum?</h3>
+            <img src="images/Q2.png" alt="Q2 Analysis">
+            <p class="description">🧭MAGELLAN autonomously discovers goal families (✊🌿🐮🦁) across 25k goals, performing on par with expert knowledge baselines—but without requiring predefined goal clusters! 🚀</p>
+        </div>
+        <div class="question">
+            <h3>🔹 <strong>Q3:</strong> Can it generalize to unseen goals?</h3>
+            <img src="images/Q3.png" alt="Q3 Analysis">
+            <p class="description">By the end of training, 🧭MAGELLAN has structured the goal embedding space, consistently predicting success probability for unseen goals—a key step toward scalable open-ended learning!</p>
+        </div>
+        <div class="question">
+            <h3>🔹 <strong>Q4:</strong> Can it adapt to evolving goal spaces?</h3>
+            <img src="images/Q4.png" alt="Q4 Analysis">
+            <p class="description">When the goal space was entirely replaced with unseen goals, 🧭MAGELLAN generalized LP predictions and retained exceptional performance—matching baselines that rely on human expertise!</p>
+        </div>
+        
+        <div class="embedding">
+            <h3>🔹 Goal Embedding Evolution</h3>
+            <img src="images/embedding_evo.gif" alt="Goal Embedding Evolution" />
+            <p class="description">As the agent trains, 🧭MAGELLAN learns to predict its LP for the goals and <strong>correctly estimates</strong> from unseen goals from the same categories. 🧭MAGELLAN builds an <strong>embedding space</strong> that reflects the structure of the goal space as it trains. This <strong>structured representation</strong> is key to <strong>effective goal generalization</strong>! 🎯📊</p>
+        </div>
+        
+        <h2>Why This Matters 🌍📊</h2>
+        <p>🧭MAGELLAN <strong>does more than predict LP</strong>—it also learns a <strong>structured, fine-grained representation of the goal space</strong>, opening doors for <strong>new research and applications</strong>.</p>
+        
+        <h3>🔹 Potential applications:</h3>
+        <ul>
+            <li>✔️ <strong>Task transfer</strong> for AI systems adapting to new challenges</li>
+            <li>✔️ <strong>Curriculum learning</strong> for more efficient skill acquisition</li>
+            <li>✔️ <strong>Personalized AI-driven education</strong>, dynamically adjusting difficulty based on learning progress</li>
+        </ul>
+        
+        <p>This research demonstrates that <strong>🧭MAGELLAN significantly outperforms prior methods</strong>, enabling AI agents to <strong>efficiently master large and evolving goal spaces—without requiring expert-defined groupings</strong>.</p>
+        
+        <p>This is a step forward in <strong>scalable open-ended learning for AI</strong>.</p>
+    </div>
+</body>
+</html>
+
